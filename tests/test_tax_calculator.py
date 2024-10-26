@@ -10,3 +10,8 @@ class TestTaxCalculator(unittest.TestCase):
 
     def test_high_income_tax(self):
         self.assertEqual(calculate_tax(40000), 6400)  # 20% of (36000 - 12000) + 40% of (40000 - 36000)
+
+
+    def test_exact_brackets(self):
+        self.assertEqual(calculate_tax(12000), 0)  # Edge case, no tax
+        self.assertEqual(calculate_tax(36000), 4800)  # 20% of (36000 - 12000)
